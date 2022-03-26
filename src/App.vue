@@ -1,15 +1,17 @@
 <template>
   <div id="App">
-    {{msg}}
+    <button @click="showDialog" value="Click">Click Me</button>
   </div>
 </template>
 
 <script>
+const { dialog } = require('electron').remote
 export default {
   name: 'App',
-  data () {
-    return {
-      msg: 'helloo'
+  methods: {
+    showDialog () {
+      const r = dialog.showOpenDialogSync()
+      console.log(r)
     }
   }
 }
