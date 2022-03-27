@@ -11,7 +11,12 @@ export default {
   methods: {
     showDialog () {
       const r = dialog.showOpenDialogSync()
-      console.log(r)
+      const audio = new Audio('file://' + r[0])
+      audio.play().then(value => {
+        console.log(value)
+      }).catch(res => {
+        console.log(res)
+      })
     }
   }
 }
